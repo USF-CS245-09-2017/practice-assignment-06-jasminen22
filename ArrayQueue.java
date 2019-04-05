@@ -33,7 +33,7 @@ public class ArrayQueue<T> implements Queue<T>{
 	public void enqueue(T item) {
 		//… if array is full, grow …
 		//need to keep one slot open at the end to be able to check if array is full
-		if((head+1)%arr.length == tail){
+		if(count==arr.length){
 			grow_array();
 		}	
 
@@ -52,8 +52,8 @@ public class ArrayQueue<T> implements Queue<T>{
 		for(int i =0; i<arr.length; i++)
 			temp[i] = arr[i];
 		arr = temp;
-		// head = 0;
-		// tail = count; //these make the palindrome incorrect
+		head = 0;
+		tail = count; //these make the palindrome incorrect
 	}
 
 }
